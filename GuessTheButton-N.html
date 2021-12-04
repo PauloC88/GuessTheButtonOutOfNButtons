@@ -44,20 +44,11 @@
   </body>
 
   <script>
-    var n = document.getElementById("nCards").value;
-    let winningId = Math.floor(Math.random() * n + 1);
-    function random(clicked_id) {
-      if (winningId.toString() === clicked_id) {
-        window.location.replace("Congratulations.html");
-      } else {
-        alert("Sorry! Try again! Better luck next time!");
-        window.location.reload();
-      }
-    }
-  </script>
-  <script>
+    var n;
+    var winningId;
     function addCards() {
-      var n = document.getElementById("nCards").value;
+      n = document.getElementById("nCards").value;
+      winningId = Math.floor(Math.random() * n + 1);
       if (n > 1 & n < 101) {
         var buttonNo = 1;
         var theDiv = document.getElementById("Cards");
@@ -72,6 +63,16 @@
         alert("Hey! Don't cheat! You can't always win! Enter a number greater than 1!");
       } else {
         alert("You must be feeling really lucky! But let's limit to maximum 100 cards!");
+      }
+    }
+
+    function random(clicked_id) {
+      var winId = winningId;
+      if (winId.toString() === clicked_id) {
+        window.location.replace("Congratulations.html");
+      } else {
+        alert("Sorry! Try again! Better luck next time!");
+        window.location.reload();
       }
     }
   </script>
